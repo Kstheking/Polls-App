@@ -6,17 +6,17 @@
 
   {% if latest_question_list %}
 
-      <div class="collection hoverable">
-      {% for question in latest_question_list %}
+  <div class="collection hoverable">
+    {% for question in latest_question_list %}
 
-          <a href="{% url 'polls:detail' question.id %}" class="collection-item "> <i class="material-icons right">question_answer</i> {{ question.question_text }}</a>
+    <a href="{% url 'polls:detail' question.id %}" class="collection-item "> <i class="material-icons right">question_answer</i> {{ question.question_text }}</a>
 
-      {% endfor %}
-      </div>
+    {% endfor %}
+  </div>
 
   {% else %}
   <div class="card-panel center-align hoverable">
-      <p>No polls are available.</p>
+    <p>No polls are available.</p>
   </div>
   {% endif %}
 </div>

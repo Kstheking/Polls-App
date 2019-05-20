@@ -2,33 +2,33 @@
 
 {% block content %}
 
-  <div class="section container">
-    <div class="card s12 m6">
-      <div class="card-content">
-<div class="card-title">
-{{ question.question_text }}
-</div>
-<table class="striped">
-<thead>
-  <tr>
-    <th>Choice</th>
-    <th>Votes</th>
-  </tr>
-</thead>
-<tbody>
+<div class="section container">
+  <div class="card s12 m6">
+    <div class="card-content">
+      <div class="card-title">
+        {{ question.question_text }}
+      </div>
+      <table class="striped">
+        <thead>
+          <tr>
+            <th>Choice</th>
+            <th>Votes</th>
+          </tr>
+        </thead>
+        <tbody>
 
-{% for choice in question.choice_set.all %}
-    <tr>
-      <td>{{ choice.choice_text }}</td>
-      <td>{{ choice.votes }} vote{{ choice.votes|pluralize }}</td>
-    </tr>
-{% endfor %}
-</tbody>
-</table>
-<div class="section">
-<a href="{% url 'polls:detail' question.id %}" class="btn waves-effect waves-light">Vote again?</a>
-</div>
-</div>
-</div>
+          {% for choice in question.choice_set.all %}
+          <tr>
+            <td>{{ choice.choice_text }}</td>
+            <td>{{ choice.votes }} vote{{ choice.votes|pluralize }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="section">
+        <a href="{% url 'polls:detail' question.id %}" class="btn waves-effect waves-light">Vote again?</a>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
