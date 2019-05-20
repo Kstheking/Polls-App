@@ -1,0 +1,29 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+<div class="container section ">
+
+  {% if latest_question_list %}
+
+      <div class="collection hoverable">
+      {% for question in latest_question_list %}
+
+          <a href="{% url 'polls:detail' question.id %}" class="collection-item "> <i class="material-icons right">question_answer</i> {{ question.question_text }}</a>
+
+      {% endfor %}
+      </div>
+
+  {% else %}
+  <div class="card-panel center-align hoverable">
+      <p>No polls are available.</p>
+  </div>
+  {% endif %}
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+{% endblock %}
